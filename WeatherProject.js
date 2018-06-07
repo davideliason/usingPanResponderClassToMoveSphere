@@ -13,19 +13,15 @@ import {
   TextInput
 } from 'react-native';
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+import Forecast from './Forecast';
 
 type Props = {};
 export default class WeatherProject extends Component<Props> {
   constructor(props) {
     super(props);
     this.state = {
-      zip: ""
+      zip: "",
+      forecast: null
     };
   }
 
@@ -34,6 +30,16 @@ export default class WeatherProject extends Component<Props> {
    };
 
   render() {
+     // let content = null;
+     // if (this.state.forecast !== null) {
+     //  content = (
+     //    <Forecast
+     //      main={this.state.forecast.main}
+     //      description={this.state.forecast.description}
+     //      temp={this.state.forecast.temp}
+     //    />
+     //  );
+
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>Weather App</Text>
@@ -44,6 +50,7 @@ export default class WeatherProject extends Component<Props> {
         <TextInput
           style={styles.input}
           onSubmitEditing={this._handleTextChange} />
+          <Forecast main="main" description="description" temp="100degrees" />
       </View>
     );
   }
