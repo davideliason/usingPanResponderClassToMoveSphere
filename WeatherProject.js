@@ -8,6 +8,7 @@ import {
   TextInput
 } from 'react-native';
 import Forecast from './Forecast';
+import OpenWeatherMap from "./open_weather_map";
 
 export default class WeatherProject extends Component {
   constructor(props) {
@@ -15,16 +16,24 @@ export default class WeatherProject extends Component {
     this.state = {
       zip: "",
       forecast: {
-        main: "main_data_here",
-        description: "description_here",
-        temp: "temp_here"
+        main: "main_state",
+        description: "description_text",
+        temp: "temp_data"
       }
     };
   }
 
+   // _handleTextChangePrototype = event => {
+   //  this.setState({ zip: event.nativeEvent.text });
+   // };
+
    _handleTextChange = event => {
-    this.setState({ zip: event.nativeEvent.text });
-   };
+    let zip = event.nativeEvent.text;
+    OpenWeatherMap.fetchForecast(zip).then(forecast => {
+    console.log(forecast);
+    this.setState({ forecast: forecast });
+  });
+};
 
   render() {
     return (
