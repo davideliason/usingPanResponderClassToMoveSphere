@@ -42,10 +42,9 @@ export default class WeatherProject extends Component {
     return (
       <View style={styles.container}>
         <ImageBackground
-          resizeMode={'cover'} // or cover
-          style={{flex: 1}} // must be passed from the parent, the number may vary depending upon your screen size
           source={require('./clouds.jpeg')}
-        >
+          resizeMode='cover'// or cover
+          style={styles.backdrop}> // must be passed from the parent, the number may vary depending upon your screen size
 
            <Text style={styles.welcome}>Weather App</Text>
            <Text style={styles.versionStyle}>version 0.1.0</Text>
@@ -73,6 +72,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'deepskyblue',
+  },
+  backdrop: {
+    flex: 1,
   },
   welcome: {
     fontSize: 20,
