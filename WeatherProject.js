@@ -59,8 +59,9 @@ const styles = StyleSheet.create({
   input: {
     fontSize: 20,
     borderWidth: 2,
+    padding: 2,
     height: 40,
-    width: 80,
-    paddingLeft: 10
+    width: 100,
+    textAlign: "center"
   },
 });
