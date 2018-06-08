@@ -8,6 +8,7 @@ import {
   TextInput,
   ImageBackground
 } from 'react-native';
+
 import Forecast from './Forecast';
 import OpenWeatherMap from "./open_weather_map";
 
@@ -39,6 +40,7 @@ export default class WeatherProject extends Component {
 };
 
   render() {
+
     return (
       <View style={styles.container}>
         <ImageBackground
@@ -46,52 +48,66 @@ export default class WeatherProject extends Component {
           resizeMode='cover'// or cover
           style={styles.backdrop}> // must be passed from the parent, the number may vary depending upon your screen size
 
-           <Text style={styles.welcome}>Weather App</Text>
+        <View style={styles.overlay}>
+         <View style={styles.row}>
+           <Text style={styles.mainText}>Weather App</Text>
            <Text style={styles.versionStyle}>version 0.1.0</Text>
-           <Text style={styles.welcome}>
-              You input: {this.state.zip}
-           </Text>
+           <View style={styles.zipContainer}>
             <TextInput
               style={styles.input}
               placeholder="zipcode"
               onSubmitEditing={this._handleTextChange} />
+           </View>
+        </View>
             <Forecast
               main={this.state.forecast.main}
               description={this.state.forecast.description}
               temp={this.state.forecast.temp}
              />
-          </ImageBackground>
       </View>
+          </ImageBackground>
+    </View>
     );
   }
 }
 
+const baseFontSize = 16;
+
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'deepskyblue',
+  container: { flex: 1, alignItems: "center", paddingTop: 30 },
+  backdrop: { flex: 1, flexDirection: "column" },
+  overlay: {
+    paddingTop: 5,
+    backgroundColor: "#000000",
+    opacity: 0.5,
+    flexDirection: "column",
+    alignItems: "center"
   },
-  backdrop: {
-    flex: 1,
+  row: {
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    alignItems: "flex-start",
+    padding: 30
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+  input: {
+    width: 40,
+    color: "white"
   },
+  zipContainer: {
+    height: baseFontSize + 10,
+    borderBottomColor: "#DDDDDD",
+    borderBottomWidth: 1,
+    marginLeft: 5,
+    marginTop: 3
+  },
+  zipCode: { flex: 1, flexBasis: 1, width: 50, height: baseFontSize },
+  mainText: { fontSize: baseFontSize, color: "#FFFFFF" },
   versionStyle: {
     textAlign: 'center',
     color: '#333333',
     marginBottom: 5,
     fontSize: 5,
   },
-  input: {
-    fontSize: 20,
-    borderWidth: 2,
-    padding: 2,
-    height: 40,
-    textAlign: "center"
-  },
 });
+
+
