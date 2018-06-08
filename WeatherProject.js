@@ -31,7 +31,9 @@ export default class WeatherProject extends Component {
     let zip = event.nativeEvent.text;
     OpenWeatherMap.fetchForecast(zip).then(forecast => {
     console.log(forecast);
-    this.setState({ forecast: forecast });
+    this.setState({ forecast: forecast,
+                    zip : zip });
+
   });
 };
 
@@ -72,6 +74,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#333333',
     marginBottom: 5,
+    fontSize: 5,
   },
   input: {
     fontSize: 20,
