@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import {
   Platform,
   StyleSheet,
@@ -6,7 +7,6 @@ import {
   View,
   TextInput
 } from 'react-native';
-
 import Forecast from './Forecast';
 
 export default class WeatherProject extends Component {
@@ -14,7 +14,11 @@ export default class WeatherProject extends Component {
     super(props);
     this.state = {
       zip: "",
-      forecast: null
+      forecast: {
+        main: "main_data_here",
+        description: "description_here",
+        temp: "temp_here"
+      }
     };
   }
 
@@ -33,7 +37,11 @@ export default class WeatherProject extends Component {
         <TextInput
           style={styles.input}
           onSubmitEditing={this._handleTextChange} />
-          <Forecast main="main" description="description" temp="100degrees" />
+         <Forecast
+            main={this.state.forecast.main}
+            description={this.state.forecast.description}
+            temp={this.state.forecast.temp}
+         />
       </View>
     );
   }
