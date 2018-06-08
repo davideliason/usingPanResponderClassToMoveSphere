@@ -5,7 +5,8 @@ import {
   StyleSheet,
   Text,
   View,
-  TextInput
+  TextInput,
+  ImageBackground
 } from 'react-native';
 import Forecast from './Forecast';
 import OpenWeatherMap from "./open_weather_map";
@@ -40,20 +41,27 @@ export default class WeatherProject extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Weather App</Text>
-        <Text style={styles.versionStyle}>version 0.1.0</Text>
-        <Text style={styles.welcome}>
-          You input: {this.state.zip}
-        </Text>
-        <TextInput
-          style={styles.input}
-          placeholder="zipcode"
-          onSubmitEditing={this._handleTextChange} />
-         <Forecast
-            main={this.state.forecast.main}
-            description={this.state.forecast.description}
-            temp={this.state.forecast.temp}
-         />
+        <ImageBackground
+          resizeMode={'cover'} // or cover
+          style={{flex: 1}} // must be passed from the parent, the number may vary depending upon your screen size
+          source={require('./clouds.jpeg')}
+        >
+
+           <Text style={styles.welcome}>Weather App</Text>
+           <Text style={styles.versionStyle}>version 0.1.0</Text>
+           <Text style={styles.welcome}>
+              You input: {this.state.zip}
+           </Text>
+            <TextInput
+              style={styles.input}
+              placeholder="zipcode"
+              onSubmitEditing={this._handleTextChange} />
+            <Forecast
+              main={this.state.forecast.main}
+              description={this.state.forecast.description}
+              temp={this.state.forecast.temp}
+             />
+          </ImageBackground>
       </View>
     );
   }
@@ -82,7 +90,6 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     padding: 2,
     height: 40,
-    width: 100,
     textAlign: "center"
   },
 });

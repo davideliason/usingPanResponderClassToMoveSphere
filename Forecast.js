@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 
 import { StyleSheet, Text, View } from "react-native";
-import { FAVORITE_COLOR } from 'react-native-dotenv'
+
+// just testing ENV variable yes works fine:
+// import { FAVORITE_COLOR } from 'react-native-dotenv'
 
 
 class Forecast extends Component {
