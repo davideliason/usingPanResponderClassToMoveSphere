@@ -1,9 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
 import {
   Platform,
@@ -15,8 +9,7 @@ import {
 
 import Forecast from './Forecast';
 
-type Props = {};
-export default class WeatherProject extends Component<Props> {
+export default class WeatherProject extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -30,16 +23,6 @@ export default class WeatherProject extends Component<Props> {
    };
 
   render() {
-     // let content = null;
-     // if (this.state.forecast !== null) {
-     //  content = (
-     //    <Forecast
-     //      main={this.state.forecast.main}
-     //      description={this.state.forecast.description}
-     //      temp={this.state.forecast.temp}
-     //    />
-     //  );
-
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>Weather App</Text>
