@@ -16,9 +16,9 @@ export default class WeatherProject extends Component {
     this.state = {
       zip: "",
       forecast: {
-        main: "",
-        description: "",
-        temp: ""
+        main: "Portland",
+        description: "changing constantly",
+        temp: "cold then hot"
       }
     };
   }
