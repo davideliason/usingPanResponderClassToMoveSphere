@@ -43,10 +43,11 @@ export default class WeatherProject extends Component {
         <Text style={styles.welcome}>Weather App</Text>
         <Text style={styles.versionStyle}>version 0.1.0</Text>
         <Text style={styles.welcome}>
-          You input {this.state.zip}.
+          You input: {this.state.zip}
         </Text>
         <TextInput
           style={styles.input}
+          placeholder="zipcode"
           onSubmitEditing={this._handleTextChange} />
          <Forecast
             main={this.state.forecast.main}
