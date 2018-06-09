@@ -19,6 +19,7 @@ export default class WeatherProject extends Component {
     super(props);
     this.state = {
       zip: "",
+      count: 0,
       forecast: {
         main: "Portland",
         description: "changing constantly",
@@ -41,8 +42,10 @@ export default class WeatherProject extends Component {
   });
 };
 
- _handlePress(event) {
-    console.log('Pressed!');
+ _handlePress = () => {
+    this.setState({
+      count: this.state.count+1
+    })
   }
 
   render() {
@@ -79,6 +82,8 @@ export default class WeatherProject extends Component {
         accessibilityLabel="press this button"
         >
       </Button>
+
+      <Text> {this.state.count} </Text>
 
       </ImageBackground>
     </View>
