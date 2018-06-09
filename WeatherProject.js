@@ -74,7 +74,10 @@ export default class WeatherProject extends Component {
       
        <Button
         onPress={this._handlePress}
-        title="Press Me!">
+        title="Press Me!"
+        color="yellow"
+        accessibilityLabel="press this button"
+        >
       </Button>
 
       </ImageBackground>
