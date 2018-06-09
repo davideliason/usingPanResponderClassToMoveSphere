@@ -94,8 +94,9 @@ export default class WeatherProject extends Component {
           </View>
        </TouchableHighlight>
 
-
-      <Text> {this.state.count} </Text>
+      <View style={styles.buttonLikeButBlue}>
+        <Text> {this.state.count} </Text>
+      </View>
 
       </ImageBackground>
     </View>
@@ -118,6 +119,11 @@ const styles = StyleSheet.create({
   button: {
     alignItems: 'center',
     backgroundColor: 'green',
+    padding: 20
+  },
+  buttonLikeButBlue: {
+    alignItems: 'center',
+    backgroundColor: 'blue',
     padding: 20
   },
   row: {
