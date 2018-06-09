@@ -77,10 +77,11 @@ export default class WeatherProject extends Component {
       </View>
       
        <TouchableHighlight
-         style={styles.button}
-         onPress={this._handlePress}>
-            <Text>Click me ok</Text>
-      </TouchableHighlight>
+        style={styles.button}
+        onPress={this._handlePress}
+       >
+          <Text>click me</Text>
+       </TouchableHighlight>
 
 
       <Text> {this.state.count} </Text>
@@ -105,8 +106,8 @@ const styles = StyleSheet.create({
   },
   button: {
     alignItems: 'center',
-    backgroundColor: '#DDDDDD',
-    padding: 10
+    backgroundColor: 'green',
+    padding: 20
   },
   row: {
     flexDirection: "row",
