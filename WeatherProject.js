@@ -21,6 +21,7 @@ export default class WeatherProject extends Component {
     this.state = {
       zip: "",
       count: 0,
+      pressing: false,
       forecast: {
         main: "Portland",
         description: "changing constantly",
@@ -29,9 +30,13 @@ export default class WeatherProject extends Component {
     };
   }
 
-   // _handleTextChangePrototype = event => {
-   //  this.setState({ zip: event.nativeEvent.text });
-   // };
+   _onPressIn = () => {
+    this.setState({ pressing: true });
+  };
+
+  _onPressOut = () => {
+    this.setState({ pressing: false });
+  };
 
    _handleTextChange = event => {
     let zip = event.nativeEvent.text;
@@ -79,8 +84,14 @@ export default class WeatherProject extends Component {
        <TouchableHighlight
         style={styles.button}
         onPress={this._handlePress}
+        onPressIn = {this._onPressIn}
+        onPressOut = {this._onPressOut}
        >
-          <Text>click me</Text>
+          <View>
+              <Text style={styles.welcome}>
+                  {this.state.pressing ? "Pressed" : "Not Pressed"}
+              </Text>
+          </View>
        </TouchableHighlight>
 
 
@@ -128,6 +139,7 @@ const styles = StyleSheet.create({
   },
   zipCode: { flex: 1, flexBasis: 1, width: 50, height: baseFontSize },
   mainText: { fontSize: baseFontSize, color: "#FFFFFF" },
+   welcome: { fontSize: 20, textAlign: "center", margin: 10, color: "#FFFFFF" },
   versionStyle: {
     textAlign: 'center',
     color: '#333333',
