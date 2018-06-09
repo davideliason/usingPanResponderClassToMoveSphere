@@ -8,7 +8,8 @@ import {
   TextInput,
   ImageBackground,
   Image,
-  Button
+  Button,
+  TouchableHighlight
 } from 'react-native';
 
 import Forecast from './Forecast';
@@ -75,13 +76,12 @@ export default class WeatherProject extends Component {
              />
       </View>
       
-       <Button
-        onPress={this._handlePress}
-        title="Press Me!"
-        color="yellow"
-        accessibilityLabel="press this button"
-        >
-      </Button>
+       <TouchableHighlight
+         style={styles.button}
+         onPress={this._handlePress}>
+            <Text>Click me ok</Text>
+      </TouchableHighlight>
+
 
       <Text> {this.state.count} </Text>
 
@@ -102,6 +102,11 @@ const styles = StyleSheet.create({
     opacity: 0.5,
     flexDirection: "column",
     alignItems: "center"
+  },
+  button: {
+    alignItems: 'center',
+    backgroundColor: '#DDDDDD',
+    padding: 10
   },
   row: {
     flexDirection: "row",
