@@ -6,7 +6,9 @@ import {
   Text,
   View,
   TextInput,
-  ImageBackground
+  ImageBackground,
+  Image,
+  Button
 } from 'react-native';
 
 import Forecast from './Forecast';
@@ -37,13 +39,11 @@ export default class WeatherProject extends Component {
                     zip : zip });
 
   });
-
-  const TRY_THIS = "hello there";
-
-  function tryTemplateStringLiteral(x) {
-    return `Now that I have had coffee, I can say ${TRY_THIS} and mean it`;
-  }
 };
+
+ _handlePress(event) {
+    console.log('Pressed!');
+  }
 
   render() {
 
@@ -71,7 +71,13 @@ export default class WeatherProject extends Component {
               temp={this.state.forecast.temp}
              />
       </View>
-          </ImageBackground>
+      
+       <Button
+        onPress={this._handlePress}
+        title="Press Me!">
+      </Button>
+
+      </ImageBackground>
     </View>
     );
   }
