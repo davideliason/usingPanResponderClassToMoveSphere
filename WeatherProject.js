@@ -37,6 +37,12 @@ export default class WeatherProject extends Component {
                     zip : zip });
 
   });
+
+  const TRY_THIS = "hello there";
+
+  function tryTemplateStringLiteral(x) {
+    return `Now that I have had coffee, I can say ${TRY_THIS} and mean it`;
+  }
 };
 
   render() {

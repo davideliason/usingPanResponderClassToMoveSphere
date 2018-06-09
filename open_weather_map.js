@@ -2,6 +2,8 @@ import { WEATHER_API_KEY } from 'react-native-dotenv'
 
 const API_STEM = "https://api.openweathermap.org/data/2.5/weather?";
 
+// function to take zipcode argument and return the URL for api fetch
+// uses template string literals
 function zipUrl(zip) {
   return `${API_STEM}q=${zip}&units=imperial&APPID=${WEATHER_API_KEY}`;
 }
