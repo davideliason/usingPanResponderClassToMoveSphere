@@ -95,7 +95,7 @@ export default class WeatherProject extends Component {
        </TouchableHighlight>
 
       <View style={styles.buttonLikeButBlue}>
-        <Text> {this.state.count} </Text>
+        <Text> Count: {this.state.count} </Text>
       </View>
 
       </ImageBackground>
